@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MOMIQ - المتجر" />
+    <title>MOMIQ | المتجر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" alt="MOMIQ" class="brand__logo" />
+          <div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div>
+        </a>
+        <nav class="nav" data-nav aria-label="MOMIQ">
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="prep-list.html" class="nav__link" data-i18n="nav_prep">قائمة التجهيز</a>
+          <a href="gift-list.html" class="nav__link" data-i18n="nav_gifts">الهدايا</a>
+          <a href="ai-assistant.html" class="nav__link" data-i18n="nav_ai">المساعد الذكي</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+          <a href="wishlist.html" class="nav__link" data-i18n="nav_wishlist">المفضلة</a>
+          <a href="settings.html" class="nav__link" data-i18n="nav_settings">الإعدادات</a>
+        </nav>
+        <div class="actions">
+          <button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h1 data-i18n="store_title">المتجر</h1>
+            <p data-i18n="store_note">تصفية حسب الفئة والمرحلة والسعر. الأسعار تجريبية.</p>
+          </header>
+
+          <div class="toolbar">
+            <label class="sr-only" for="searchInput">بحث</label>
+            <input class="input" type="search" id="searchInput" style="max-width:280px" data-i18n-placeholder="search_placeholder" placeholder="ابحثي عن منتج..." />
+            <label class="sr-only" for="filterCategory">التصنيف</label>
+            <select class="select" id="filterCategory" style="max-width:220px"></select>
+            <label class="sr-only" for="filterStage">مرحلة الأمومة</label>
+            <select class="select" id="filterStage" style="max-width:220px">
+              <option value="" data-i18n="store_filter_stage_all">كل المراحل</option>
+              <option value="pregnancy-plan" data-i18n="mom_stage_plan">التخطيط للحمل</option>
+              <option value="pregnancy" data-i18n="mom_stage_preg">الحمل</option>
+              <option value="birth-prep" data-i18n="mom_stage_birth">الاستعداد للولادة</option>
+              <option value="postpartum" data-i18n="mom_stage_post">ما بعد الولادة</option>
+            </select>
+            <label class="sr-only" for="sortBy">ترتيب</label>
+            <select class="select" id="sortBy" style="max-width:200px">
+              <option value="rel" data-i18n="store_sort_rel">الأكثر صلة</option>
+              <option value="low" data-i18n="store_sort_low">الأقل سعرًا</option>
+              <option value="high" data-i18n="store_sort_high">الأعلى سعرًا</option>
+            </select>
+            <button class="btn btn--ghost btn--small" type="button" id="resetFilters" data-i18n="store_reset">إعادة التعيين</button>
+          </div>
+
+          <p class="hint" id="resultsCount" aria-live="polite"></p>
+          <div class="grid" id="storeGrid"></div>
+          <p class="hint" id="emptyMsg" style="display:none" data-i18n="common_empty">لا توجد نتائج</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></div>
+          <p data-i18n="footer_about_text">تطبيق ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p>
+        </div>
+        <div><h3 data-i18n="footer_quick">روابط سريعة</h3><ul class="footer__list"><li><a href="store.html" data-i18n="nav_store">المتجر</a></li><li><a href="ai-assistant.html" data-i18n="nav_ai">المساعد الذكي</a></li></ul></div>
+        <div><p data-i18n="footer_rights">© 2026 MOMIQ</p></div>
+      </div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waFab" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg>
+    </button>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      const state = { q: "", category: "", stage: "", sort: "rel" };
+
+      function buildCategoryOptions() {
+        const select = document.getElementById("filterCategory");
+        const categories = Array.from(new Set((window.MomiqProducts || []).map(p => p.category)));
+        select.innerHTML = `<option value="">${t("store_filter_category_all")}</option>` +
+          categories.map(c => `<option value="${c}">${categoryLabel(c)}</option>`).join("");
+        select.value = state.category;
+      }
+
+      function filteredProducts() {
+        const lang = window.MomiqI18n.getLang();
+        let list = (window.MomiqProducts || []).slice();
+        if (state.category) list = list.filter(p => p.category === state.category);
+        if (state.stage) list = list.filter(p => (p.stage || []).includes(state.stage));
+        if (state.q) {
+          const q = state.q.toLowerCase();
+          list = list.filter(p => {
+            const item = getProductText(p, lang);
+            return `${item.name} ${item.shortDesc} ${item.desc}`.toLowerCase().includes(q);
+          });
+        }
+        if (state.sort === "low") list.sort((a, b) => a.price - b.price);
+        if (state.sort === "high") list.sort((a, b) => b.price - a.price);
+        return list;
+      }
+
+      function renderStore() {
+        const grid = document.getElementById("storeGrid");
+        const empty = document.getElementById("emptyMsg");
+        const counter = document.getElementById("resultsCount");
+        const list = filteredProducts();
+        if (!list.length) {
+          grid.innerHTML = "";
+          empty.style.display = "block";
+          counter.textContent = "";
+          return;
+        }
+        empty.style.display = "none";
+        counter.textContent = `${list.length} / ${(window.MomiqProducts || []).length}`;
+        grid.innerHTML = list.map(productCardHtml).join("");
+        initWishButtons();
+        refreshWishButtons();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(location.search);
+        state.q = params.get("q") || "";
+        state.category = params.get("category") || "";
+        state.stage = params.get("stage") || "";
+        document.getElementById("searchInput").value = state.q;
+
+        buildCategoryOptions();
+        document.getElementById("filterStage").value = state.stage;
+        renderStore();
+
+        document.getElementById("searchInput").addEventListener("input", event => {
+          state.q = event.target.value;
+          renderStore();
+        });
+        document.getElementById("filterCategory").addEventListener("change", event => {
+          state.category = event.target.value;
+          renderStore();
+        });
+        document.getElementById("filterStage").addEventListener("change", event => {
+          state.stage = event.target.value;
+          renderStore();
+        });
+        document.getElementById("sortBy").addEventListener("change", event => {
+          state.sort = event.target.value;
+          renderStore();
+        });
+        document.getElementById("resetFilters").addEventListener("click", () => {
+          state.q = ""; state.category = ""; state.stage = ""; state.sort = "rel";
+          document.getElementById("searchInput").value = "";
+          document.getElementById("filterCategory").value = "";
+          document.getElementById("filterStage").value = "";
+          document.getElementById("sortBy").value = "rel";
+          renderStore();
+        });
+        document.addEventListener("lang:changed", () => {
+          buildCategoryOptions();
+          renderStore();
+        });
+      });
+    </script>
+  </body>
+</html>

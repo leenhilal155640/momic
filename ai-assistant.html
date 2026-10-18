@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOMIQ | المساعد الذكي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></a>
+        <nav class="nav" data-nav aria-label="MOMIQ">
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="prep-list.html" class="nav__link" data-i18n="nav_prep">قائمة التجهيز</a>
+          <a href="gift-list.html" class="nav__link" data-i18n="nav_gifts">الهدايا</a>
+          <a href="ai-assistant.html" class="nav__link" data-i18n="nav_ai">المساعد الذكي</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+          <a href="wishlist.html" class="nav__link" data-i18n="nav_wishlist">المفضلة</a>
+          <a href="settings.html" class="nav__link" data-i18n="nav_settings">الإعدادات</a>
+        </nav>
+        <div class="actions">
+          <button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h1 data-i18n="ai_title">المساعد الذكي MOMIQ AI</h1>
+            <p data-i18n="ai_mode">وضع تجريبي – يعمل بقواعد محلية.</p>
+          </header>
+
+          <div class="chat">
+            <!-- إفصاح صريح عن طبيعة العمل -->
+            <p class="chat__notice">
+              <span class="chat__notice-icon" aria-hidden="true">ℹ️</span>
+              <span data-i18n="ai_disclaimer">وضع تجريبي: الردود من قواعد محلية داخل متصفحكِ، وليست من نموذج ذكاء اصطناعي حقيقي. لا يتم إرسال أي بيانات للإنترنت.</span>
+            </p>
+
+            <div class="chat__log" id="chatLog" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+            <div class="chat__actions">
+              <div class="chat__chips" id="chatChips" aria-label="suggestions"></div>
+              <button class="btn btn--ghost btn--small" type="button" id="chatClear" data-i18n="ai_clear">مسح المحادثة</button>
+            </div>
+
+            <form class="chat__form" id="chatForm">
+              <label class="sr-only" for="chatInput" data-i18n="ai_placeholder">اكتبي سؤالكِ بالعربية أو الإنجليزية...</label>
+              <textarea class="textarea" id="chatInput" rows="1" maxlength="300" data-i18n-placeholder="ai_placeholder" placeholder="اكتبي سؤالكِ بالعربية أو الإنجليزية..."></textarea>
+              <button class="btn btn--primary" type="submit" id="chatSend" data-i18n="ai_send">إرسال</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></div>
+          <p data-i18n="footer_about_text">تطبيق ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p>
+        </div>
+      </div>
+      <div class="container" style="padding-top:var(--spacing-sm)"><p data-i18n="footer_rights">© 2026 MOMIQ</p></div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waFab" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg></button>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ai-adapter.js"></script>
+    <script>
+      (function () {
+        var logEl = document.getElementById("chatLog");
+        var form = document.getElementById("chatForm");
+        var input = document.getElementById("chatInput");
+        var chipsEl = document.getElementById("chatChips");
+        var clearBtn = document.getElementById("chatClear");
+
+        function esc(s) {
+          return String(s).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+
+        /* ---------- بناء فقاعات ---------- */
+        function addRow(who, text, products) {
+          var row = document.createElement("div");
+          row.className = "chat__row" + (who === "me" ? " chat__row--me" : "");
+          var avatar = who === "me"
+            ? '<span class="chat__avatar" aria-hidden="true">🙋</span>'
+            : '<span class="chat__avatar"><img src="assets/logo.png" alt=""></span>';
+
+          var html = avatar + '<div class="chat__bubble">';
+          if (text) html += esc(text);
+
+          if (products && products.length) {
+            html += '<div class="chat__products">';
+            products.forEach(function (p) {
+              var tx = getProductText(p);
+              html += '<div class="chat__product">' +
+                '<span class="chat__product-name">' + esc(tx.name) + '</span>' +
+                '<span class="chat__product-price">' + formatPrice(p.price) + '</span>' +
+                '<a class="btn btn--small btn--ghost" href="product.html?id=' + p.id + '">' + t("view_details") + '</a>' +
+                '</div>';
+            });
+            html += '</div>';
+          }
+
+          if (who !== "me") {
+            html += '<span class="chat__meta">' + esc(t("ai_mode")) + '</span>';
+          }
+          html += '</div>';
+          row.innerHTML = html;
+          logEl.appendChild(row);
+          logEl.scrollTop = logEl.scrollHeight;
+          return row;
+        }
+
+        function addTyping() {
+          var row = document.createElement("div");
+          row.className = "chat__row";
+          row.innerHTML = '<span class="chat__avatar"><img src="assets/logo.png" alt=""></span>' +
+            '<div class="chat__bubble chat__typing" aria-label="' + esc(t("ai_thinking")) + '">' +
+            '<span class="chat__dot"></span><span class="chat__dot"></span><span class="chat__dot"></span></div>';
+          logEl.appendChild(row);
+          logEl.scrollTop = logEl.scrollHeight;
+          return row;
+        }
+
+        /* ---------- المقترحات ---------- */
+        function renderChips() {
+          var keys = ["ai_s1", "ai_s2", "ai_s3", "ai_s4"];
+          chipsEl.innerHTML = keys.map(function (k) {
+            return '<button type="button" class="chat__chip" data-q="' + esc(t(k)) + '">' + esc(t(k)) + '</button>';
+          }).join("");
+        }
+
+        chipsEl.addEventListener("click", function (e) {
+          var b = e.target.closest("[data-q]");
+          if (!b) return;
+          send(b.getAttribute("data-q"));
+        });
+
+        /* ---------- الإرسال ---------- */
+        var busy = false;
+
+        function send(text) {
+          var q = (text || input.value).trim();
+          if (!q || busy) return;
+          busy = true;
+          addRow("me", q);
+          input.value = "";
+          input.style.height = "auto";
+
+          var typing = addTyping();
+
+          /* استجابة تجريبية محلية عبر طبقة المحوّل */
+          window.MomiqAI.reply(q).then(function (res) {
+            typing.remove();
+            addRow("bot", res.text, res.products);
+            busy = false;
+          }, function () {
+            typing.remove();
+            addRow("bot", t("ai_no_match"));
+            busy = false;
+          });
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!input.value.trim()) {
+            showToast(t("ai_input_required"));
+            input.focus();
+            return;
+          }
+          send();
+        });
+
+        input.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            form.requestSubmit ? form.requestSubmit() : send();
+          }
+        });
+
+        input.addEventListener("input", function () {
+          input.style.height = "auto";
+          input.style.height = Math.min(input.scrollHeight, 140) + "px";
+        });
+
+        clearBtn.addEventListener("click", function () {
+          logEl.innerHTML = "";
+          greet();
+        });
+
+        /* ---------- البداية ---------- */
+        function greet() {
+          addRow("bot", t("ai_greeting"));
+        }
+
+        function boot() {
+          renderChips();
+          if (!logEl.children.length) greet();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          boot();
+          document.addEventListener("lang:changed", function () {
+            renderChips();
+            /* إعادة بناء الرسائل بلغة جديدة */
+            logEl.innerHTML = "";
+            greet();
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

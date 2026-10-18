@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOMIQ | قوائم الهدايا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></a>
+        <nav class="nav" data-nav aria-label="MOMIQ">
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="prep-list.html" class="nav__link" data-i18n="nav_prep">قائمة التجهيز</a>
+          <a href="gift-list.html" class="nav__link" data-i18n="nav_gifts">الهدايا</a>
+          <a href="ai-assistant.html" class="nav__link" data-i18n="nav_ai">المساعد الذكي</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+          <a href="wishlist.html" class="nav__link" data-i18n="nav_wishlist">المفضلة</a>
+          <a href="settings.html" class="nav__link" data-i18n="nav_settings">الإعدادات</a>
+        </nav>
+        <div class="actions">
+          <button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h1 data-i18n="gifts_title">قوائم الهدايا</h1>
+            <p data-i18n="gifts_hint">أنشئي قائمة هدايا وشاركيها مع العائلة لتفادي تكرار الهدايا. لا يتم إرسال أي شيء تلقائيًا.</p>
+          </header>
+
+          <div class="gift-layout">
+            <!-- عمود القوائم -->
+            <aside class="prep-panel">
+              <form id="giftCreateForm" style="display:flex;flex-direction:column;gap:var(--spacing-sm)">
+                <label class="field">
+                  <span data-i18n="gifts_name">اسم القائمة</span>
+                  <input class="input" type="text" id="giftNewName" maxlength="40" required data-i18n-placeholder="gifts_name_ph" placeholder="مثال: هدايا تخرج" />
+                </label>
+                <button class="btn btn--primary" type="submit" data-i18n="gifts_create_submit">إنشاء</button>
+              </form>
+
+              <div id="giftListNav" class="stack" aria-live="polite"></div>
+              <p id="giftEmptyAll" class="prep-empty" data-i18n="gifts_empty">لم تقومي بإنشاء أي قائمة بعد.</p>
+            </aside>
+
+            <!-- تفاصيل القائمة المحددة -->
+            <div class="prep-panel" id="giftDetail" hidden>
+              <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:var(--spacing-sm)">
+                <h2 id="giftTitle" style="margin:0;font-size:1.25rem"></h2>
+                <div class="row" style="gap:var(--spacing-xs)">
+                  <button class="btn btn--soft btn--small" type="button" id="giftShareBtn" data-i18n="gifts_share">مشاركة رابط القائمة</button>
+                  <button class="btn btn--ghost btn--small" type="button" id="giftRenameBtn" data-i18n="common_edit">تعديل</button>
+                  <button class="btn btn--ghost btn--small" type="button" id="giftDeleteBtn" data-i18n="common_delete">حذف</button>
+                </div>
+              </div>
+
+              <div class="prep-stats">
+                <div class="prep-stat">
+                  <span class="prep-stat__label" data-i18n="gifts_count">عدد الهدايا</span>
+                  <span class="prep-stat__value" id="giftCount">0</span>
+                </div>
+                <div class="prep-stat prep-stat--ok">
+                  <span class="prep-stat__label" data-i18n="gifts_progress">المُشترى</span>
+                  <span class="prep-stat__value" id="giftBought">0</span>
+                </div>
+              </div>
+
+              <form id="giftAddForm" class="gift-add">
+                <label>
+                  <span data-i18n="gifts_items">الهدايا</span>
+                  <input class="input" type="text" id="giftItemName" maxlength="60" required data-i18n-placeholder="gifts_add_placeholder" placeholder="اسم الهدية" />
+                </label>
+                <label>
+                  <span data-i18n="gifts_add_price">السعر (ريال)</span>
+                  <input class="input" type="number" id="giftItemPrice" min="0" step="1" placeholder="0" />
+                </label>
+                <button class="btn btn--primary" type="submit" data-i18n="prep_add">إضافة</button>
+              </form>
+
+              <div id="giftItems" class="stack" aria-live="polite"></div>
+              <p id="giftEmptyOne" class="prep-empty" data-i18n="common_empty">لا توجد نتائج</p>
+
+              <p class="gift-note" data-i18n="gifts_link_hint">الرابط يفتح القائمة على نفس الجهاز فقط (نسخة محلية تجريبية).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></div>
+          <p data-i18n="footer_about_text">تطبيق ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p>
+        </div>
+      </div>
+      <div class="container" style="padding-top:var(--spacing-sm)"><p data-i18n="footer_rights">© 2026 MOMIQ</p></div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waFab" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg></button>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      (function () {
+        var KEY = "momiq_gift_lists";
+        var SEL_KEY = "momiq_gift_selected";
+
+        function all() {
+          return window.MomiqStorage.get(KEY, []);
+        }
+        function save(lists) {
+          window.MomiqStorage.set(KEY, lists);
+        }
+        function currentId() {
+          return window.MomiqStorage.get(SEL_KEY, null);
+        }
+        function setCurrent(id) {
+          window.MomiqStorage.set(SEL_KEY, id);
+        }
+        function current() {
+          var id = currentId();
+          return all().find(function (l) { return l.id === id; }) || null;
+        }
+        /* يعيد الفهرس داخل المصفوفة المحفوظة — لتعديل وحفظ بنفس النسخة */
+        function currentIndex() {
+          var id = currentId();
+          return all().findIndex(function (l) { return l.id === id; });
+        }
+        function esc(s) {
+          return String(s).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+
+        var navEl = document.getElementById("giftListNav");
+        var emptyAll = document.getElementById("giftEmptyAll");
+        var detail = document.getElementById("giftDetail");
+        var itemsEl = document.getElementById("giftItems");
+        var emptyOne = document.getElementById("giftEmptyOne");
+
+        function render() {
+          var lists = all();
+          emptyAll.style.display = lists.length ? "none" : "block";
+
+          /* قائمة جانبية */
+          navEl.innerHTML = lists.map(function (l) {
+            var bought = l.items.filter(function (i) { return i.status === "purchased"; }).length;
+            return (
+              '<button class="gift-list-btn' + (l.id === currentId() ? " is-active" : "") + '" type="button" data-select="' + l.id + '">' +
+                "<span>" + esc(l.name) + "</span>" +
+                '<span class="gift-list-btn__count">' + bought + "/" + l.items.length + "</span>" +
+              "</button>"
+            );
+          }).join("");
+
+          var cur = current();
+          if (!cur) {
+            detail.hidden = true;
+            return;
+          }
+          detail.hidden = false;
+          document.getElementById("giftTitle").textContent = cur.name;
+          document.getElementById("giftCount").textContent = String(cur.items.length);
+          document.getElementById("giftBought").textContent = String(
+            cur.items.filter(function (i) { return i.status === "purchased"; }).length
+          );
+
+          emptyOne.style.display = cur.items.length ? "none" : "block";
+
+          itemsEl.innerHTML = cur.items.map(function (it, i) {
+            var cls =
+              it.status === "purchased" ? "gift-chip--purchased" :
+              it.status === "reserved" ? "gift-chip--reserved" : "gift-chip--available";
+            var lbl =
+              it.status === "purchased" ? t("gifts_purchased") :
+              it.status === "reserved" ? t("gifts_reserved") : t("gifts_available");
+            return (
+              '<div class="gift-item' + (it.status === "purchased" ? " gift-item--purchased" : "") + '">' +
+                '<span class="gift-item__body">' +
+                  '<span class="gift-item__name">' + esc(it.name) + "</span>" +
+                  '<span class="gift-item__price">' + (it.price ? formatPrice(it.price) : "—") + "</span>" +
+                "</span>" +
+                '<span class="gift-chip ' + cls + '">' + lbl + "</span>" +
+                '<span class="gift-item__actions">' +
+                  '<button class="btn btn--small btn--ghost" type="button" data-cycle="' + i + '">' + t("gifts_status") + "</button>" +
+                  '<button class="btn btn--small btn--ghost" type="button" data-remove="' + i + '">' + t("common_delete") + "</button>" +
+                "</span>" +
+              "</div>"
+            );
+          }).join("");
+        }
+
+        /* إنشاء قائمة */
+        document.getElementById("giftCreateForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = document.getElementById("giftNewName").value.trim();
+          if (!name) return;
+          var lists = all();
+          var id = "g" + Date.now();
+          lists.push({ id: id, name: name, items: [] });
+          save(lists);
+          setCurrent(id);
+          e.target.reset();
+          render();
+        });
+
+        /* اختيار قائمة */
+        navEl.addEventListener("click", function (e) {
+          var b = e.target.closest("[data-select]");
+          if (!b) return;
+          setCurrent(b.getAttribute("data-select"));
+          render();
+        });
+
+        /* إضافة هدية */
+        document.getElementById("giftAddForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var lists = all();
+          var idx = currentIndex();
+          if (idx < 0 || !lists[idx]) return;
+          var name = document.getElementById("giftItemName").value.trim();
+          if (!name) return;
+          var price = Number(document.getElementById("giftItemPrice").value) || 0;
+          lists[idx].items.push({ name: name, price: price, status: "available" });
+          save(lists);
+          e.target.reset();
+          document.getElementById("giftItemName").focus();
+          render();
+        });
+
+        /* تغيير الحالة / حذف هدية */
+        itemsEl.addEventListener("click", function (e) {
+          var lists = all();
+          var idx = currentIndex();
+          if (idx < 0 || !lists[idx]) return;
+          var cur = lists[idx];
+          var cyc = e.target.closest("[data-cycle]");
+          var rm = e.target.closest("[data-remove]");
+          if (cyc) {
+            var i = Number(cyc.getAttribute("data-cycle"));
+            if (!cur.items[i]) return;
+            var order = ["available", "reserved", "purchased"];
+            var now = order.indexOf(cur.items[i].status);
+            cur.items[i].status = order[(now + 1) % order.length];
+            save(lists);
+            render();
+          } else if (rm) {
+            cur.items.splice(Number(rm.getAttribute("data-remove")), 1);
+            save(lists);
+            render();
+          }
+        });
+
+        /* تعديل الاسم */
+        document.getElementById("giftRenameBtn").addEventListener("click", function () {
+          var lists = all();
+          var idx = currentIndex();
+          if (idx < 0 || !lists[idx]) return;
+          var next = window.prompt(t("gifts_name"), lists[idx].name);
+          if (next === null) return;
+          next = next.trim();
+          if (!next) return;
+          lists[idx].name = next;
+          save(lists);
+          render();
+        });
+
+        /* حذف القائمة */
+        document.getElementById("giftDeleteBtn").addEventListener("click", function () {
+          var lists = all();
+          var idx = currentIndex();
+          if (idx < 0 || !lists[idx]) return;
+          if (!window.confirm(t("gifts_delete_confirm"))) return;
+          lists.splice(idx, 1);
+          save(lists);
+          setCurrent(null);
+          render();
+        });
+
+        /* مشاركة الرابط (نسخ محلي فقط — لا يوجد إرسال فعلي) */
+        document.getElementById("giftShareBtn").addEventListener("click", function () {
+          var cur = current();
+          if (!cur) return;
+          var url = location.origin + location.pathname + "?list=" + encodeURIComponent(cur.id);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(
+              function () { showToast(t("gifts_link_copied")); },
+              function () { window.prompt("MOMIQ", url); }
+            );
+          } else {
+            window.prompt("MOMIQ", url);
+          }
+        });
+
+        function boot() {
+          /* دعم فتح قائمة عبر رابط ?list=id (على نفس الجهاز) */
+          var params = new URLSearchParams(location.search);
+          var fromUrl = params.get("list");
+          if (fromUrl && all().some(function (l) { return l.id === fromUrl; })) {
+            setCurrent(fromUrl);
+          }
+          if (!current() && all().length) setCurrent(all()[0].id);
+          render();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          boot();
+          document.addEventListener("lang:changed", boot);
+        });
+      })();
+    </script>
+  </body>
+</html>

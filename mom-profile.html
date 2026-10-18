@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOMIQ | ملف الأم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" class="brand__logo" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></a>
+        <nav class="nav" data-nav>
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+        </nav>
+        <div class="actions"><button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button><button class="nav__toggle" data-nav-toggle aria-expanded="false"><span>☰</span></button></div>
+      </div>
+    </header>
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section__header"><h1 data-i18n="mom_title">ملف الأم</h1><p data-i18n="mom_hint">لن نطلب بيانات صحية حساسة. يمكنكِ تعديل اختياراتكِ لاحقًا.</p></header>
+          <form id="momForm" class="card" style="max-width:700px;padding:1.25rem;display:flex;flex-direction:column;gap:1rem;">
+            <label><span data-i18n="mom_stage">مرحلة الأمومة</span>
+              <select id="stage" class="btn btn--ghost" style="width:100%;text-align:start">
+                <option value="pregnancy-plan" data-i18n="mom_stage_plan">التخطيط للحمل</option>
+                <option value="pregnancy" data-i18n="mom_stage_preg">الحمل</option>
+                <option value="birth-prep" data-i18n="mom_stage_birth">الاستعداد للولادة</option>
+                <option value="postpartum" data-i18n="mom_stage_post">ما بعد الولادة</option>
+              </select>
+            </label>
+            <label><span data-i18n="mom_budget">الميزانية الاختيارية (ريال)</span><input id="budget" type="number" min="0" class="btn btn--ghost" style="width:100%;text-align:start" placeholder="مثال: 1000"></label>
+            <fieldset style="border:1px solid var(--color-border);border-radius:12px;padding:1rem"><legend data-i18n="mom_interests">اهتماماتكِ</legend>
+              <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+                <label><input type="checkbox" value="hospital"> <span>مستلزمات المستشفى</span></label>
+                <label><input type="checkbox" value="comfort"> <span>راحة الحامل</span></label>
+                <label><input type="checkbox" value="nursing"> <span>رضاعة</span></label>
+                <label><input type="checkbox" value="baby"> <span>ملابس المولود</span></label>
+                <label><input type="checkbox" value="care"> <span>العناية بعد الولادة</span></label>
+              </div>
+            </fieldset>
+            <button class="btn btn--primary" type="submit" data-i18n="mom_save">حفظ التعديلات</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><div class="container footer__grid"><div class="footer__brand"><div class="brand"><img src="assets/logo.png" class="brand__logo"/><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></div><p data-i18n="footer_about_text">تطبيق ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p></div></div></footer>
+    <button class="whatsapp-fab" id="waFab"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg></button>
+    <script src="js/storage.js"></script><script src="js/data.js"></script><script src="js/i18n.js"></script><script src="js/app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+        const form=document.getElementById("momForm"); const stage=document.getElementById("stage"); const budget=document.getElementById("budget");
+        const saved=JSON.parse(localStorage.getItem("momiq_mom_profile")||"{}");
+        if(saved.stage) stage.value=saved.stage; if(saved.budget) budget.value=saved.budget;
+        saved.interests&&saved.interests.forEach(v=>{ const c=form.querySelector(`input[value="${v}"]`); if(c) c.checked=true; });
+        form.addEventListener("submit",e=>{ e.preventDefault(); const interests=[...form.querySelectorAll('input[type=checkbox]:checked')].map(x=>x.value); const data={stage:stage.value,budget:budget.value,interests}; localStorage.setItem("momiq_mom_profile",JSON.stringify(data)); alert("تم الحفظ"); });
+        if(window.MomiqI18n.applyI18n) window.MomiqI18n.applyI18n(window.MomiqI18n.getLang());
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MOMIQ | مومِك - متجر أمومة ذكي يجمع المتجر وقوائم الهدايا والمساعد التسوق الذكي" />
+    <title>MOMIQ | مومِك</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" alt="MOMIQ شعار مومِك" class="brand__logo" />
+          <div class="brand__text">
+            <span class="brand__title" data-i18n="brand_title">MOMIQ</span>
+            <span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span>
+          </div>
+        </a>
+        <nav class="nav" data-nav aria-label="MOMIQ">
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="prep-list.html" class="nav__link" data-i18n="nav_prep">قائمة التجهيز</a>
+          <a href="gift-list.html" class="nav__link" data-i18n="nav_gifts">الهدايا</a>
+          <a href="ai-assistant.html" class="nav__link" data-i18n="nav_ai">المساعد الذكي</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+          <a href="wishlist.html" class="nav__link" data-i18n="nav_wishlist">المفضلة</a>
+          <a href="settings.html" class="nav__link" data-i18n="nav_settings">الإعدادات</a>
+        </nav>
+        <div class="actions">
+          <button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <h1 data-i18n="hero_title">لأنّ الحب يبدأ بتفاصيل صغيرة…</h1>
+            <p data-i18n="hero_subtitle">جمعنا لكِ كل ما يجعل رحلتكِ مع صغيركِ أكثر دفئًا وراحة، من أول لمسة حب إلى كل لحظة تكبر فيها حكايتكما. ♥</p>
+            <form class="row" id="heroSearch" role="search">
+              <label class="sr-only" for="heroSearchInput">بحث</label>
+              <input class="input" id="heroSearchInput" type="search" style="max-width:320px" data-i18n-placeholder="search_placeholder" placeholder="ابحثي عن منتج..." />
+              <button class="btn btn--primary" type="submit" data-i18n="nav_store">المتجر</button>
+            </form>
+            <div class="hero__actions" style="margin-top:1rem">
+              <a href="store.html" class="btn btn--soft" data-i18n="hero_cta_store">تسوقي الآن</a>
+              <a href="ai-assistant.html" class="btn btn--ghost" data-i18n="hero_cta_ai">جربي المساعد الذكي</a>
+              <a href="mom-profile.html" class="btn btn--ghost" data-i18n="hero_cta_mom">أكملي ملف الأم</a>
+            </div>
+          </div>
+          <div class="hero__media">
+            <figure class="hero__card">
+              <img src="assets/img/hero-mom.png" alt="MOMIQ شعار مومِك" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="categoriesTitle">
+        <div class="container">
+          <header class="section__header">
+            <h2 id="categoriesTitle" data-i18n="categories_title">تسوقي حسب التصنيف</h2>
+            <p data-i18n="categories_note">اختاري ما يناسب مرحلتكِ من أقسام مختارة بعناية.</p>
+          </header>
+          <div class="grid" id="categoriesGrid"></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="recommendedTitle">
+        <div class="container">
+          <header class="section__header">
+            <h2 id="recommendedTitle" data-i18n="sections_recommended">منتجات مقترحة</h2>
+            <p data-i18n="sections_recommended_note">منتجات مختارة بعناية لمراحل مختلفة من الأمومة.</p>
+          </header>
+          <div class="grid" id="recommendedGrid" aria-live="polite"></div>
+          <p class="hint" id="emptyRecommended" style="display:none" data-i18n="empty_recommended">لا توجد منتجات مقترحة حالياً.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2 data-i18n="sections_gifts">قسم الهدايا</h2>
+            <p data-i18n="gifts_text">أنشئي قائمة هدايا وشاركيها مع العائلة والأصدقاء لتفادي التكرار.</p>
+          </header>
+          <div class="row">
+            <a href="gift-list.html" class="btn btn--primary" data-i18n="gifts_cta">اذهبي لقوائم الهدايا</a>
+            <a href="prep-list.html" class="btn btn--ghost" data-i18n="nav_prep">قائمة التجهيز</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2 data-i18n="sections_ai_intro">مدخل المساعد الذكي</h2>
+            <p data-i18n="ai_text">اكتبي احتياجاتكِ مثل: تجهيز حقيبة المستشفى بميزانية 500 ريال، ويقترح لكِ منتجات من الكتالوج مع بدائل.</p>
+          </header>
+          <div class="row">
+            <a href="ai-assistant.html" class="btn btn--primary" data-i18n="ai_cta">ابدأي المحادثة</a>
+            <button class="btn btn--soft" type="button" id="waHomeBtn" data-i18n="whatsapp_title">تواصلي عبر واتساب</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand">
+            <img src="assets/logo.png" class="brand__logo" alt="MOMIQ" />
+            <div class="brand__text">
+              <span class="brand__title">MOMIQ</span>
+              <span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span>
+            </div>
+          </div>
+          <p data-i18n="footer_about_text">موقع ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p>
+        </div>
+        <div>
+          <h3 data-i18n="footer_quick">روابط سريعة</h3>
+          <ul class="footer__list">
+            <li><a href="store.html" data-i18n="nav_store">المتجر</a></li>
+            <li><a href="gift-list.html" data-i18n="nav_gifts">الهدايا</a></li>
+            <li><a href="ai-assistant.html" data-i18n="nav_ai">المساعد الذكي</a></li>
+            <li><a href="settings.html" data-i18n="nav_settings">الإعدادات</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="footer_contact">تواصل</h3>
+          <ul class="footer__list">
+            <li><button class="btn btn--small btn--soft" type="button" id="footerWa" data-i18n="whatsapp_title">تواصلي عبر واتساب</button></li>
+          </ul>
+        </div>
+        <div>
+          <p data-i18n="footer_rights">© 2026 MOMIQ</p>
+        </div>
+      </div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waFab" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg>
+    </button>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      const CATEGORY_ICONS = {
+        hospital: "🏥",
+        comfort: "🤰",
+        nursing: "🍼",
+        baby: "👶",
+        care: "🌸"
+      };
+
+      function renderCategories() {
+        const grid = document.getElementById("categoriesGrid");
+        const products = window.MomiqProducts || [];
+        const categories = Array.from(new Set(products.map(p => p.category)));
+        grid.innerHTML = categories.map(cat => {
+          const count = products.filter(p => p.category === cat).length;
+          const icon = CATEGORY_ICONS[cat] || "🎀";
+          return `<a class="category-card" href="store.html?category=${cat}">
+            <span class="category-card__icon" aria-hidden="true">${icon}</span>
+            <span class="category-card__label">${categoryLabel(cat)}</span>
+            <span class="category-card__count">${count} ${t("nav_store")}</span>
+          </a>`;
+        }).join("");
+      }
+
+      function renderRecommended() {
+        const grid = document.getElementById("recommendedGrid");
+        const empty = document.getElementById("emptyRecommended");
+        const list = (window.MomiqProducts || []).slice(0, 6);
+        if (!list.length) {
+          grid.innerHTML = "";
+          empty.style.display = "block";
+          return;
+        }
+        empty.style.display = "none";
+        grid.innerHTML = list.map(productCardHtml).join("");
+        initWishButtons();
+        refreshWishButtons();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCategories();
+        renderRecommended();
+        document.addEventListener("lang:changed", () => {
+          renderCategories();
+          renderRecommended();
+        });
+        document.getElementById("waHomeBtn").addEventListener("click", () => openWhatsApp());
+        document.getElementById("heroSearch").addEventListener("submit", event => {
+          event.preventDefault();
+          const q = document.getElementById("heroSearchInput").value.trim();
+          location.href = q ? `store.html?q=${encodeURIComponent(q)}` : "store.html";
+        });
+      });
+    </script>
+  </body>
+</html>

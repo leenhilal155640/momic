@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" rx="20" fill="#FFF9F4"/>
+  <rect x="200" y="150" width="200" height="200" rx="16" fill="#FFFFFF" stroke="#D9A8B8" stroke-width="8"/>
+  <path d="M 240 150 V 130 H 360 V 150" stroke="#D9A8B8" stroke-width="8" stroke-linecap="round"/>
+  <rect x="230" y="220" width="140" height="14" rx="7" fill="#EEC9D3"/>
+  <rect x="230" y="250" width="90" height="10" rx="5" fill="#463540" opacity="0.25"/>
+  <text x="300" y="340" font-family="Tajawal, Inter, system-ui" font-size="22" text-anchor="middle" fill="#463540">شنطة حفاضات</text>
+</svg>

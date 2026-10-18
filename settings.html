@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOMIQ | الإعدادات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="index.html"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></a>
+        <nav class="nav" data-nav aria-label="MOMIQ">
+          <a href="index.html" class="nav__link" data-i18n="nav_home">الرئيسية</a>
+          <a href="store.html" class="nav__link" data-i18n="nav_store">المتجر</a>
+          <a href="mom-profile.html" class="nav__link" data-i18n="nav_mom">ملف الأم</a>
+          <a href="prep-list.html" class="nav__link" data-i18n="nav_prep">قائمة التجهيز</a>
+          <a href="gift-list.html" class="nav__link" data-i18n="nav_gifts">الهدايا</a>
+          <a href="ai-assistant.html" class="nav__link" data-i18n="nav_ai">المساعد الذكي</a>
+          <a href="cart.html" class="nav__link"><span data-i18n="nav_cart">السلة</span> (<span id="cartBadge">0</span>)</a>
+          <a href="wishlist.html" class="nav__link" data-i18n="nav_wishlist">المفضلة</a>
+          <a href="settings.html" class="nav__link" data-i18n="nav_settings">الإعدادات</a>
+        </nav>
+        <div class="actions">
+          <button class="btn btn--ghost btn--small" id="langToggle" data-i18n="lang_toggle">English</button>
+          <button class="nav__toggle" data-nav-toggle aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <h1 data-i18n="settings_title">الإعدادات</h1>
+            <p data-i18n="settings_hint">يتم الحفظ محليًا على جهازكِ فقط.</p>
+          </header>
+
+          <div class="settings-grid">
+            <!-- اللغة -->
+            <section class="settings-card" aria-labelledby="setTitleLang">
+              <h2 class="settings-card__title" id="setTitleLang"><span aria-hidden="true">🌍</span><span data-i18n="settings_lang">اللغة</span></h2>
+              <div class="settings-field">
+                <span data-i18n="settings_lang">اللغة</span>
+                <div class="settings-seg" id="langSeg" role="group" aria-label="Language">
+                  <button class="settings-seg__btn" type="button" data-lang="ar">العربية</button>
+                  <button class="settings-seg__btn" type="button" data-lang="en">English</button>
+                </div>
+                <p class="settings-card__hint" data-i18n="settings_lang_hint">يتغيّر الاتجاه تلقائيًا (RTL/LTR).</p>
+              </div>
+
+              <div class="settings-field">
+                <span data-i18n="settings_preview">نص المعاينة</span>
+                <div class="settings-preview">
+                  <span class="settings-preview__label" data-i18n="settings_preview">نص المعاينة</span>
+                  <span class="settings-preview__text" id="previewText" data-i18n="settings_preview_text">الحب يبدأ بتفاصيل صغيرة — MOMIQ</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- الخطوط -->
+            <section class="settings-card" aria-labelledby="setTitleFont">
+              <h2 class="settings-card__title" id="setTitleFont"><span aria-hidden="true">✍️</span><span data-i18n="settings_ar_font">الخطوط</span></h2>
+
+              <div class="settings-field">
+                <span data-i18n="settings_ar_font">خط العربية</span>
+                <div class="settings-seg" id="arFontSeg" role="group" aria-label="Arabic font">
+                  <button class="settings-seg__btn" type="button" data-font="Tajawal" style="font-family:'Tajawal',sans-serif">Tajawal</button>
+                  <button class="settings-seg__btn" type="button" data-font="Cairo" style="font-family:'Cairo',sans-serif">Cairo</button>
+                </div>
+              </div>
+
+              <div class="settings-field">
+                <span data-i18n="settings_en_font">خط الإنجليزية</span>
+                <div class="settings-seg" id="enFontSeg" role="group" aria-label="English font">
+                  <button class="settings-seg__btn" type="button" data-font="Inter" style="font-family:'Inter',sans-serif">Inter</button>
+                  <button class="settings-seg__btn" type="button" data-font="system-ui" style="font-family:system-ui,sans-serif">System</button>
+                </div>
+                <p class="settings-card__hint" data-i18n="settings_font_hint">يُطبَّق فورًا بعد الحفظ على كل الصفحات.</p>
+              </div>
+
+              <button class="btn btn--primary" type="button" id="saveBtn" data-i18n="settings_save">حفظ الإعدادات</button>
+            </section>
+
+            <!-- منطقة الحذف -->
+            <section class="settings-card settings-danger" aria-labelledby="setTitleReset">
+              <h2 class="settings-card__title" id="setTitleReset"><span aria-hidden="true">🧹</span><span data-i18n="settings_reset">مسح البيانات المحفوظة</span></h2>
+              <p class="settings-card__hint" data-i18n="settings_reset_hint">السلة، المفضلة، قائمة التجهيز وقوائم الهدايا.</p>
+              <p class="settings-card__hint" data-i18n="settings_reset_note">لا يوجد حذف لحسابات لأن الموقع لا يستخدم تسجيل دخول.</p>
+              <button class="btn btn--ghost" type="button" id="resetBtn" data-i18n="settings_reset">مسح البيانات المحفوظة</button>
+            </section>
+
+            <!-- معلومات -->
+            <section class="settings-card" aria-labelledby="setTitleInfo">
+              <h2 class="settings-card__title" id="setTitleInfo"><span aria-hidden="true">🔒</span><span data-i18n="settings_hint">يتم الحفظ محليًا على جهازكِ فقط.</span></h2>
+              <p class="settings-card__hint" data-i18n="privacy_text">لا نجمع بياناتكِ ولا نرسلها لأي خادم — كل شيء محفوظ في متصفحكِ (localStorage).</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <div class="brand"><img src="assets/logo.png" class="brand__logo" alt="MOMIQ" /><div class="brand__text"><span class="brand__title">MOMIQ</span><span class="brand__subtitle" data-i18n="brand_subtitle">مومِك</span></div></div>
+          <p data-i18n="footer_about_text">تطبيق ويب متخصص في الأمومة يجمع المتجر وقوائم الهدايا والمساعد الذكي.</p>
+        </div>
+      </div>
+      <div class="container" style="padding-top:var(--spacing-sm)"><p data-i18n="footer_rights">© 2026 MOMIQ</p></div>
+    </footer>
+
+    <button class="whatsapp-fab" id="waFab" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"/></svg></button>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      (function () {
+        var FONT_AR_KEY = "momiq_font_ar";
+        var FONT_EN_KEY = "momiq_font_en";
+
+        /* قراءة الحالة الحالية */
+        function state() {
+          return {
+            lang: window.MomiqI18n.getLang(),
+            arFont: window.MomiqStorage.get(FONT_AR_KEY, "Tajawal"),
+            enFont: window.MomiqStorage.get(FONT_EN_KEY, "Inter")
+          };
+        }
+
+        /* تمييز الأزرار النشطة */
+        function markActive(segId, attr, value) {
+          var seg = document.getElementById(segId);
+          if (!seg) return;
+          seg.querySelectorAll("button").forEach(function (b) {
+            var on = b.getAttribute(attr) === value;
+            b.classList.toggle("is-active", on);
+            b.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+        }
+
+        function render() {
+          var s = state();
+          markActive("langSeg", "data-lang", s.lang);
+          markActive("arFontSeg", "data-font", s.arFont);
+          markActive("enFontSeg", "data-font", s.enFont);
+
+          /* معاينة الخط العربي فورًا */
+          var pv = document.getElementById("previewText");
+          if (pv) pv.style.fontFamily = s.lang === "ar"
+            ? "'" + s.arFont + "', 'Tajawal', 'Cairo', sans-serif"
+            : "'" + s.enFont + "', 'Inter', system-ui, sans-serif";
+        }
+
+        /* اللغة — تُطبَّق فورًا (نفس منطق الهيدر) */
+        document.getElementById("langSeg").addEventListener("click", function (e) {
+          var b = e.target.closest("[data-lang]");
+          if (!b) return;
+          window.MomiqI18n.setLang(b.getAttribute("data-lang"));
+          render();
+        });
+
+        /* اختيار الخط — يُحفظ عند الضغط على حفظ */
+        var pending = {};
+        ["arFontSeg", "enFontSeg"].forEach(function (id) {
+          document.getElementById(id).addEventListener("click", function (e) {
+            var b = e.target.closest("[data-font]");
+            if (!b) return;
+            var seg = document.getElementById(id);
+            pending[id] = b.getAttribute("data-font");
+            seg.querySelectorAll("button").forEach(function (x) {
+              var on = x === b;
+              x.classList.toggle("is-active", on);
+              x.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+            /* معاينة حيّة قبل الحفظ */
+            var s = state();
+            var ar = id === "arFontSeg" ? pending[id] : s.arFont;
+            var en = id === "enFontSeg" ? pending[id] : s.enFont;
+            var body = document.body;
+            body.style.setProperty("--font-ar", "'" + ar + "', 'Tajawal', 'Cairo', system-ui, sans-serif");
+            body.style.setProperty("--font-en", "'" + en + "', 'Inter', system-ui, sans-serif");
+          });
+        });
+
+        /* حفظ */
+        document.getElementById("saveBtn").addEventListener("click", function () {
+          var s = state();
+          var ar = pending.arFontSeg || s.arFont;
+          var en = pending.enFontSeg || s.enFont;
+          window.MomiqStorage.set(FONT_AR_KEY, ar);
+          window.MomiqStorage.set(FONT_EN_KEY, en);
+          pending = {};
+          applyFontPreferences();
+          showToast(t("settings_saved"));
+          render();
+        });
+
+        /* مسح البيانات */
+        document.getElementById("resetBtn").addEventListener("click", function () {
+          if (!window.confirm(t("settings_reset_confirm"))) return;
+          ["momiq_cart", "momiq_wishlist", "momiq_prep_list", "momiq_prep_budget",
+           "momiq_gift_lists", "momiq_gift_selected", "momiq_mom_profile"].forEach(function (k) {
+            try { localStorage.removeItem(k); } catch (e) {}
+          });
+          document.dispatchEvent(new CustomEvent("cart:updated"));
+          document.dispatchEvent(new CustomEvent("wishlist:updated"));
+          showToast(t("settings_reset_done"));
+        });
+
+        function boot() {
+          pending = {};
+          render();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          boot();
+          document.addEventListener("lang:changed", boot);
+        });
+      })();
+    </script>
+  </body>
+</html>

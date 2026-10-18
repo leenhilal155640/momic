@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" rx="20" fill="#FFF9F4"/>
+  <rect x="170" y="130" width="260" height="190" rx="16" fill="#EEC9D3" opacity="0.25" stroke="#D9A8B8" stroke-width="6"/>
+  <rect x="190" y="150" width="220" height="150" rx="10" fill="#FFFFFF"/>
+  <path d="M 250 150 V 120 H 350 V 150" stroke="#D9A8B8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="240" cy="220" r="14" fill="#D9A8B8"/>
+  <circle cx="360" cy="220" r="14" fill="#D9A8B8"/>
+  <rect x="270" y="250" width="60" height="10" rx="5" fill="#463540" opacity="0.25"/>
+  <text x="300" y="340" font-family="Tajawal, Inter, system-ui" font-size="22" text-anchor="middle" fill="#463540">حقيبة مستشفى</text>
+</svg>
