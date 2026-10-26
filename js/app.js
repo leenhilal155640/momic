@@ -207,7 +207,7 @@ function productCardHtml(product) {
       <p class="card__text">${t9n.shortDesc || ""}</p>
       <div class="card__meta">
         <span class="price">${formatPrice(product.price)}</span>
-        <a href="product.html?id=${product.id}" class="btn btn--small btn--ghost">${t("view_details")}</a>
+        <a href="product.html?id=${product.id}" class="btn btn--small btn--details">${t("view_details")}</a>
       </div>
     </div>
   </article>`;
@@ -252,6 +252,85 @@ function initNav() {
   });
 }
 
+/* ---------- فوتر مومِك ---------- */
+function initFooter() {
+  document.addEventListener("click", event => {
+    const waBtn = event.target.closest("[data-footer-whatsapp]");
+    if (waBtn) {
+      event.preventDefault();
+      openWhatsApp();
+      return;
+    }
+
+    const topBtn = event.target.closest("[data-footer-top]");
+    if (topBtn) {
+      event.preventDefault();
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      const brand = document.querySelector(".header .brand");
+      if (brand && typeof brand.focus === "function") brand.focus({ preventScroll: true });
+    }
+  });
+
+  const footer = document.querySelector(".mq-footer");
+  if (!footer) return;
+
+  /* ظهور تدريجي لعناصر الفوتر في الصفحات التي لا تحمّل animations.js */
+  const footerGroup = footer.querySelector("[data-animate-stagger]");
+  const hasAnimationsScript = Array.prototype.some.call(
+    document.scripts,
+    script => /animations\.js/.test(script.src || "")
+  );
+
+  if (footerGroup && !hasAnimationsScript) {
+    const items = Array.prototype.slice.call(footerGroup.children);
+    items.forEach(el => {
+      if (!el.hasAttribute("data-animate")) el.setAttribute("data-animate", "slide-up");
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(el => el.classList.add("is-inview"));
+    } else {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
+
+      items.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("is-inview");
+          return;
+        }
+        observer.observe(el);
+      });
+    }
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  let frame = null;
+  footer.addEventListener("pointermove", event => {
+    if (frame) return;
+    frame = window.requestAnimationFrame(() => {
+      const rect = footer.getBoundingClientRect();
+      footer.style.setProperty("--mq-mx", `${event.clientX - rect.left}px`);
+      footer.style.setProperty("--mq-my", `${event.clientY - rect.top}px`);
+      footer.classList.add("is-spotlight");
+      frame = null;
+    });
+  });
+
+  footer.addEventListener("pointerleave", () => {
+    footer.classList.remove("is-spotlight");
+  });
+}
+
 function updateCartBadge() {
   const badge = document.getElementById("cartBadge");
   if (badge) badge.textContent = String(getCartCount());
@@ -259,6 +338,7 @@ function updateCartBadge() {
 
 function initCommon() {
   initNav();
+  initFooter();
   updateCartBadge();
   window.MomiqI18n.initI18n();
   applyFontPreferences();
