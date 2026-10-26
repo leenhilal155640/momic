@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF9F4" />
+  <title>مومك | Momk — رحلة تبدأ بفكرة</title>
+  <meta name="description" content="عرض تقديمي تفاعلي لمشروع مومك: رحلة تبدأ بفكرة، وتكبر بالاهتمام." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css?v=momk-closing-2" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body class="is-opening">
+
+  <div class="momk-presentation" id="presentation">
+
+    <!-- ============================================================
+         SLIDE 01 — The opening: a door into the Momk world
+         ============================================================ -->
+    <section class="slide slide--opening active" id="slide-1" data-scene="opening" aria-label="الشريحة الأولى: افتتاحية مومك">
+      <div class="opening-stage">
+
+        <!-- ---------- Left: dreamlike architectural scene ---------- -->
+        <div class="art-panel">
+          <div class="art-halo" aria-hidden="true"></div>
+          <div class="art-beam" aria-hidden="true"></div>
+          <div class="art-grain" aria-hidden="true"></div>
+
+          <div class="floor" aria-hidden="true">
+            <span class="floor-streak floor-streak--1"></span>
+            <span class="floor-streak floor-streak--2"></span>
+            <span class="floor-streak floor-streak--3"></span>
+            <span class="floor-streak floor-streak--4"></span>
+          </div>
+
+          <div class="door-shadow" aria-hidden="true"></div>
+
+          <div class="door-stage">
+            <div class="door-arch">
+              <div class="door-stone" aria-hidden="true"></div>
+
+              <div class="door-opening">
+                <!-- The little world behind the door -->
+                <svg class="door-scene" viewBox="0 0 320 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                  <defs>
+                    <linearGradient id="doorSky" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#E8BFC9" />
+                      <stop offset=".28" stop-color="#F1CFC9" />
+                      <stop offset=".55" stop-color="#F8E0CF" />
+                      <stop offset=".78" stop-color="#FBEBDD" />
+                      <stop offset="1" stop-color="#FFF8EE" />
+                    </linearGradient>
+                    <radialGradient id="doorSun" cx="50%" cy="50%" r="50%">
+                      <stop offset="0" stop-color="#FFFDF8" stop-opacity="1" />
+                      <stop offset=".32" stop-color="#FFEACB" stop-opacity=".96" />
+                      <stop offset=".7" stop-color="#F7CFB8" stop-opacity=".35" />
+                      <stop offset="1" stop-color="#F5C9B5" stop-opacity="0" />
+                    </radialGradient>
+                    <linearGradient id="doorMountainBack" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#DCB6BA" />
+                      <stop offset="1" stop-color="#C99BA3" />
+                    </linearGradient>
+                    <linearGradient id="doorMountainMid" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#CFA0A4" />
+                      <stop offset="1" stop-color="#BA858F" />
+                    </linearGradient>
+                    <linearGradient id="doorHills" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#D8B29D" />
+                      <stop offset="1" stop-color="#C08F7B" />
+                    </linearGradient>
+                    <linearGradient id="doorHillsFront" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#E3C3AD" />
+                      <stop offset="1" stop-color="#D1A58C" />
+                    </linearGradient>
+                    <linearGradient id="doorPath" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#FFF7E5" />
+                      <stop offset=".55" stop-color="#FFE6C2" />
+                      <stop offset="1" stop-color="#F7C9A7" />
+                    </linearGradient>
+                    <linearGradient id="doorShaft" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#FFF9E9" stop-opacity=".75" />
+                      <stop offset="1" stop-color="#FFF9E9" stop-opacity="0" />
+                    </linearGradient>
+                    <filter id="doorSoft" x="-40%" y="-40%" width="180%" height="180%">
+                      <feGaussianBlur stdDeviation="8" />
+                    </filter>
+                    <filter id="doorGlow" x="-80%" y="-80%" width="260%" height="260%">
+                      <feGaussianBlur stdDeviation="3.4" />
+                    </filter>
+                  </defs>
+
+                  <rect width="320" height="640" fill="url(#doorSky)" />
+                  <ellipse cx="164" cy="292" rx="108" ry="94" fill="url(#doorSun)" opacity=".92" />
+                  <circle cx="164" cy="286" r="25" fill="#FFF8E7" opacity=".98" />
+
+                  <!-- light shaft through the door -->
+                  <path d="M164 304 L94 640 L246 640 Z" fill="url(#doorShaft)" opacity=".32" />
+
+                  <!-- mountains -->
+                  <path d="M-24 366 L26 326 L68 350 L104 306 L140 338 L176 300 L214 338 L252 310 L292 342 L344 318 L344 440 L-24 440 Z" fill="url(#doorMountainBack)" opacity=".78" />
+                  <path d="M-24 396 C22 366 58 380 92 350 C128 318 154 362 190 338 C228 312 262 356 300 336 C320 326 336 336 344 342 L344 480 L-24 480 Z" fill="url(#doorMountainMid)" opacity=".86" />
+                  <path d="M-24 440 C26 416 62 428 100 404 C140 378 170 422 208 400 C248 378 282 420 316 404 C330 398 340 402 344 406 L344 520 L-24 520 Z" fill="url(#doorHills)" opacity=".92" />
+
+                  <!-- foreground hills -->
+                  <path d="M-24 494 C34 464 80 486 124 464 C168 442 204 484 244 466 C282 448 318 474 344 462 L344 660 L-24 660 Z" fill="url(#doorHillsFront)" />
+                  <path d="M-24 546 C38 516 86 542 132 520 C176 498 214 536 258 518 C296 502 326 522 344 516 L344 660 L-24 660 Z" fill="#C99B82" opacity=".72" />
+
+                  <!-- the glowing path -->
+                  <path d="M150 660 C130 608 188 574 166 534 C146 498 192 470 174 438 C162 416 170 402 180 388" fill="none" stroke="url(#doorPath)" stroke-width="30" stroke-linecap="round" opacity=".55" filter="url(#doorSoft)" />
+                  <path d="M150 660 C130 608 188 574 166 534 C146 498 192 470 174 438 C162 416 170 402 180 388" fill="none" stroke="url(#doorPath)" stroke-width="15" stroke-linecap="round" opacity=".96" />
+                  <path d="M150 660 C130 608 188 574 166 534 C146 498 192 470 174 438 C162 416 170 402 180 388" fill="none" stroke="#FFFDF5" stroke-width="4" stroke-linecap="round" opacity=".8" />
+
+                  <!-- path reflections -->
+                  <ellipse cx="162" cy="594" rx="47" ry="4.5" fill="#FFF5DE" opacity=".45" filter="url(#doorGlow)" />
+                  <ellipse cx="166" cy="548" rx="31" ry="3" fill="#FFF5DE" opacity=".4" filter="url(#doorGlow)" />
+                  <ellipse cx="175" cy="490" rx="18" ry="2" fill="#FFF8E8" opacity=".45" filter="url(#doorGlow)" />
+                  <ellipse cx="178" cy="444" rx="9" ry="1.6" fill="#FFF8E8" opacity=".5" filter="url(#doorGlow)" />
+
+                  <!-- tiny glints -->
+                  <g fill="#FFF8E6">
+                    <circle cx="58" cy="380" r="1.3" opacity=".8" />
+                    <circle cx="250" cy="354" r="1.1" opacity=".7" />
+                    <circle cx="92" cy="452" r="1" opacity=".55" />
+                    <circle cx="230" cy="512" r="1.2" opacity=".6" />
+                    <circle cx="120" cy="578" r="1" opacity=".5" />
+                    <circle cx="206" cy="606" r="1.4" opacity=".55" />
+                  </g>
+                </svg>
+
+                <div class="scene-vignette" aria-hidden="true"></div>
+
+                <div class="door-quote">
+                  <span>كل فكرة</span>
+                  <span>تستحق أن تُصنع</span>
+                  <span>بإحساس.</span>
+                </div>
+
+                <!-- Partially open leaf, hinged on the right -->
+                <div class="door-leaf" aria-hidden="true">
+                  <span class="leaf-panel leaf-panel--top"></span>
+                  <span class="leaf-panel leaf-panel--bottom"></span>
+                  <span class="leaf-glow"></span>
+                  <span class="leaf-handle"></span>
+                </div>
+              </div>
+
+              <div class="door-arch-shine" aria-hidden="true"></div>
+            </div>
+            <div class="door-sill" aria-hidden="true"></div>
+          </div>
+
+          <div class="door-reflection" aria-hidden="true"></div>
+
+          <!-- A small, delicate flowering branch -->
+          <svg class="branch" viewBox="0 0 230 245" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="branchStem" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#A97D7D" />
+                <stop offset=".55" stop-color="#BE9290" />
+                <stop offset="1" stop-color="#D0A9A1" />
+              </linearGradient>
+              <radialGradient id="petalFill" cx="38%" cy="30%" r="75%">
+                <stop offset="0" stop-color="#FBE8E8" />
+                <stop offset=".55" stop-color="#EBC1C7" />
+                <stop offset="1" stop-color="#D9A5B0" />
+              </radialGradient>
+              <g id="fivePetal">
+                <ellipse cx="0" cy="-7.2" rx="4.2" ry="6.2" fill="url(#petalFill)" />
+                <ellipse cx="6.8" cy="-2.2" rx="4.2" ry="6.2" transform="rotate(72 6.8 -2.2)" fill="url(#petalFill)" />
+                <ellipse cx="4.2" cy="5.9" rx="4.2" ry="6.2" transform="rotate(144 4.2 5.9)" fill="url(#petalFill)" />
+                <ellipse cx="-4.2" cy="5.9" rx="4.2" ry="6.2" transform="rotate(216 -4.2 5.9)" fill="url(#petalFill)" />
+                <ellipse cx="-6.8" cy="-2.2" rx="4.2" ry="6.2" transform="rotate(288 -6.8 -2.2)" fill="url(#petalFill)" />
+                <circle cx="0" cy="0" r="2" fill="#F7DCC0" />
+              </g>
+            </defs>
+            <path d="M18 238 C42 202 56 172 82 144 C108 116 132 94 166 68 C184 54 198 40 210 22" fill="none" stroke="url(#branchStem)" stroke-width="2" stroke-linecap="round" />
+            <path d="M61 180 C78 168 96 161 116 157" fill="none" stroke="url(#branchStem)" stroke-width="1.4" stroke-linecap="round" />
+            <path d="M91 136 C80 120 76 106 77 92" fill="none" stroke="url(#branchStem)" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M123 108 C138 98 154 94 170 94" fill="none" stroke="url(#branchStem)" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M164 71 C158 55 160 42 168 28" fill="none" stroke="url(#branchStem)" stroke-width="1.1" stroke-linecap="round" />
+            <path d="M40 218 C52 226 64 228 76 224 C66 216 54 212 40 218 Z" fill="#B9A79B" opacity=".55" />
+            <path d="M84 154 C94 146 106 144 116 148 C108 158 96 162 84 154 Z" fill="#B9A79B" opacity=".5" />
+            <path d="M145 86 C150 75 161 69 172 72 C168 83 158 89 145 86 Z" fill="#B9A79B" opacity=".45" />
+            <use href="#fivePetal" transform="translate(116 157) scale(.82) rotate(-14)" />
+            <use href="#fivePetal" transform="translate(77 92) scale(.72) rotate(21)" />
+            <use href="#fivePetal" transform="translate(170 94) scale(.66) rotate(-28)" />
+            <use href="#fivePetal" transform="translate(168 28) scale(.58) rotate(10)" />
+            <use href="#fivePetal" transform="translate(196 44) scale(.5) rotate(-8)" />
+            <use href="#fivePetal" transform="translate(100 190) scale(.46) rotate(16)" opacity=".9" />
+            <circle cx="198" cy="60" r="2" fill="#E9C0C5" opacity=".7" />
+            <circle cx="64" cy="132" r="1.5" fill="#E9C0C5" opacity=".65" />
+          </svg>
+
+          <div class="petals" aria-hidden="true">
+            <span style="--x: 12%; --delay: -3s; --dur: 19s; --drift: 26px; --scale: .9;"></span>
+            <span style="--x: 28%; --delay: -9s; --dur: 23s; --drift: -18px; --scale: .65;"></span>
+            <span style="--x: 43%; --delay: -15s; --dur: 21s; --drift: 31px; --scale: .8;"></span>
+            <span style="--x: 59%; --delay: -6s; --dur: 25s; --drift: -24px; --scale: .55;"></span>
+            <span style="--x: 72%; --delay: -18s; --dur: 20s; --drift: 16px; --scale: .7;"></span>
+            <span style="--x: 86%; --delay: -11s; --dur: 24s; --drift: -28px; --scale: .5;"></span>
+          </div>
+
+          <div class="motes" aria-hidden="true">
+            <span style="--x: 9%; --y: 22%; --dur: 13s; --delay: -2s; --size: 3px;"></span>
+            <span style="--x: 18%; --y: 54%; --dur: 17s; --delay: -7s; --size: 4px;"></span>
+            <span style="--x: 31%; --y: 14%; --dur: 15s; --delay: -4s; --size: 2px;"></span>
+            <span style="--x: 40%; --y: 68%; --dur: 19s; --delay: -11s; --size: 3px;"></span>
+            <span style="--x: 55%; --y: 30%; --dur: 16s; --delay: -9s; --size: 2px;"></span>
+            <span style="--x: 67%; --y: 58%; --dur: 14s; --delay: -5s; --size: 4px;"></span>
+            <span style="--x: 79%; --y: 20%; --dur: 18s; --delay: -13s; --size: 2.5px;"></span>
+            <span style="--x: 88%; --y: 44%; --dur: 15s; --delay: -8s; --size: 3px;"></span>
+            <span style="--x: 48%; --y: 84%; --dur: 20s; --delay: -15s; --size: 2px;"></span>
+          </div>
+        </div>
+
+        <!-- ---------- Right: the Momk welcome ---------- -->
+        <div class="content-panel">
+          <div class="panel-glow" aria-hidden="true"></div>
+
+          <header class="brand-lockup intro intro--brand">
+            <span class="brand-text">
+              <span class="brand-name">Momk</span>
+              <span class="brand-ar">مومك</span>
+            </span>
+            <svg class="brand-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2.8l1.8 7.4L21.2 12l-7.4 1.8L12 21.2l-1.8-7.4L2.8 12l7.4-1.8z" />
+            </svg>
+          </header>
+
+          <div class="hero">
+            <p class="hero-eyebrow intro intro--eyebrow">مرحبًا بكِ في رحلة</p>
+            <h1 class="hero-wordmark intro intro--wordmark">Momk</h1>
+
+            <div class="hero-arabic intro intro--arabic">
+              <span class="arabic-rule" aria-hidden="true"></span>
+              <span class="arabic-word">مومك</span>
+              <span class="arabic-rule" aria-hidden="true"></span>
+              <svg class="arabic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 3.2l1.6 6.5 6.5 1.6-6.5 1.6-1.6 6.5-1.6-6.5-6.5-1.6 6.5-1.6z" />
+              </svg>
+            </div>
+
+            <p class="hero-main intro intro--main">
+              <span>لأن كل بداية جميلة،</span>
+              <span>تستحق عناية تشبهها.</span>
+            </p>
+            <p class="hero-sub intro intro--sub">رحلة تبدأ بفكرة، وتكبر بالاهتمام.</p>
+
+            <div class="heart intro intro--heart" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <defs>
+                  <linearGradient id="heartStroke" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#D9A6AF" />
+                    <stop offset=".55" stop-color="#B77D88" />
+                    <stop offset="1" stop-color="#925F69" />
+                  </linearGradient>
+                </defs>
+                <path d="M12 20.4S4.5 15.8 4.5 10.4A4.4 4.4 0 0 1 12 7.2a4.4 4.4 0 0 1 7.5 3.2c0 5.4-7.5 10-7.5 10z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="student-card intro intro--card" role="group" aria-label="بيانات الطالبة">
+            <div class="student-item">
+              <span class="student-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="student-copy">
+                <span class="student-label">الطالبة</span>
+                <span class="student-value">لين عبدالرحمن هلال</span>
+              </span>
+            </div>
+
+            <div class="student-item">
+              <span class="student-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h4M7 13h7M17 10v4"/></svg>
+              </span>
+              <span class="student-copy">
+                <span class="student-label">الرقم الجامعي</span>
+                <span class="student-value student-value--number" dir="ltr">155640</span>
+              </span>
+            </div>
+
+            <div class="student-item student-item--subject">
+              <span class="student-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 5.6A2.6 2.6 0 0 1 5.6 3H12v18H5.6A2.6 2.6 0 0 1 3 18.4z"/><path d="M21 5.6A2.6 2.6 0 0 0 18.4 3H12v18h6.4a2.6 2.6 0 0 0 2.6-2.6z"/></svg>
+              </span>
+              <span class="student-copy">
+                <span class="student-label">المادة</span>
+                <span class="student-value">بناء ونشر المواقع بالذكاء الاصطناعي</span>
+              </span>
+            </div>
+
+            <div class="student-item">
+              <span class="student-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.4a2 2 0 0 0 1.5-3.3 2 2 0 0 1 1.5-3.3h1.2A3.4 3.4 0 0 0 21 11 9 9 0 0 0 12 3z"/><circle cx="7.7" cy="10" r=".9"/><circle cx="10.1" cy="6.9" r=".9"/><circle cx="14" cy="6.9" r=".9"/><circle cx="16.6" cy="9.7" r=".9"/></svg>
+              </span>
+              <span class="student-copy">
+                <span class="student-label">التخصص</span>
+                <span class="student-value">التصميم والبرمجيات</span>
+              </span>
+            </div>
+          </div>
+
+          <nav class="opening-nav intro intro--nav" aria-label="التنقل بين شرائح العرض">
+            <div class="nav-count" aria-label="الشريحة الحالية">
+              <span class="count-current" id="openingCurrent">01</span>
+              <span class="count-sep">/</span>
+              <span class="count-total" data-total>12</span>
+            </div>
+
+            <span class="nav-rule" aria-hidden="true"></span>
+            <div class="nav-dots" id="openingDots"></div>
+
+            <button class="opening-cta" type="button" data-next-slide aria-label="اكتشفي الحكاية — الانتقال إلى الشريحة التالية">
+              <span class="cta-orb" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 4v15"/><path d="M6.5 13.5 12 19l5.5-5.5"/></svg>
+              </span>
+              <span class="cta-label">اكتشفي الحكاية</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDES 02–12 — one chapter per scene -->
+    <section class="slide story-slide" id="slide-2" data-scene="story-start" aria-label="الشريحة الثانية: بداية الحكاية">
+      <div class="slide-background bg-gradient bg-petals" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span><span class="float-shape shape-three"></span></div>
+      <div class="scene-container scene-story">
+        <p class="eyebrow">بداية الحكاية</p>
+        <h2>كل فكرة جميلة تبدأ باحتياج</h2>
+        <p class="lead">جاءت فكرة مومك من الرغبة في تقديم تجربة رقمية قريبة من الأم واحتياجاتها، تجمع بين البساطة والاهتمام.</p>
+        <div class="story-emblem" aria-hidden="true"><span class="story-emblem__ring"></span><span class="story-emblem__ring story-emblem__ring--inner"></span><span class="story-emblem__seed">م</span><span class="story-emblem__spark">✳</span></div>
+        <span class="scene-index">01 <i></i> 12</span>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-3" data-scene="need" aria-label="الشريحة الثالثة: لماذا مومك؟">
+      <div class="slide-background bg-orbs bg-lilac" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span><span class="float-shape shape-three"></span></div>
+      <div class="scene-container scene-need">
+        <header class="scene-heading"><p class="eyebrow">لماذا مومك؟</p><h2>لأن التفاصيل الصغيرة تصنع فرقاً</h2></header>
+        <div class="need-composition">
+          <div class="need-core"><span class="need-core__halo"></span><span>تجربة<br />أقرب للأم</span></div>
+          <div class="need-points">
+            <article class="need-point"><span class="point-number">١</span><p>تحتاج الأم إلى تجربة سهلة وواضحة.</p></article>
+            <article class="need-point"><span class="point-number">٢</span><p>كثرة المعلومات قد تجعل الوصول إلى المطلوب أصعب.</p></article>
+            <article class="need-point"><span class="point-number">٣</span><p>لذلك نهتم بتقديم تجربة مريحة ومنظمة.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-4" data-scene="concept" aria-label="الشريحة الرابعة: فكرة المشروع">
+      <div class="slide-background bg-ribbons bg-peach" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span></div>
+      <div class="scene-container scene-concept">
+        <div class="concept-copy"><p class="eyebrow">فكرة المشروع</p><h2>مساحة صُممت بعناية</h2><p class="lead">مومك مشروع رقمي يهدف إلى تقديم تجربة مميزة للأم والطفل، من خلال تصميم يجمع بين سهولة الاستخدام والهوية البصرية الهادئة.</p></div>
+        <div class="concept-art" aria-hidden="true"><span class="concept-orbit concept-orbit--outer"></span><span class="concept-orbit concept-orbit--inner"></span><span class="concept-flower"><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="concept-line concept-line--one"></span><span class="concept-line concept-line--two"></span></div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-5" data-scene="audience" aria-label="الشريحة الخامسة: لمن صُمم مومك؟">
+      <div class="slide-background bg-glow bg-blue" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span><span class="float-shape shape-three"></span></div>
+      <div class="scene-container scene-audience">
+        <header class="scene-heading"><p class="eyebrow">لمن صُمم مومك؟</p><h2>لكل أم تبحث عن تجربة أسهل</h2></header>
+        <div class="audience-orbit">
+          <div class="audience-center"><span class="audience-center__icon" aria-hidden="true">م</span><span>مومك</span></div>
+          <article class="audience-note audience-note--one"><span class="note-mark">01</span><p>للأمهات اللواتي يقدّرن البساطة والوضوح.</p></article>
+          <article class="audience-note audience-note--two"><span class="note-mark">02</span><p>لمن ترغب في الوصول إلى ما تحتاجه بسهولة.</p></article>
+          <article class="audience-note audience-note--three"><span class="note-mark">03</span><p>للعائلات التي تهتم بتجربة الأم والطفل.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-6" data-scene="experience" aria-label="الشريحة السادسة: ملامح التجربة">
+      <div class="slide-background bg-waves bg-rose" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span></div>
+      <div class="scene-container scene-experience">
+        <div class="experience-heading"><p class="eyebrow">ملامح التجربة</p><h2>البساطة في<br /><em>كل تفصيل</em></h2></div>
+        <div class="experience-list">
+          <article class="experience-item"><span class="experience-number">01</span><span class="experience-line"></span><p>واجهة مرتبة وسهلة التصفح.</p><span class="experience-icon" aria-hidden="true">↗</span></article>
+          <article class="experience-item"><span class="experience-number">02</span><span class="experience-line"></span><p>ألوان هادئة تعكس الدفء والراحة.</p><span class="experience-icon" aria-hidden="true">✳</span></article>
+          <article class="experience-item"><span class="experience-number">03</span><span class="experience-line"></span><p>تصميم يراعي وضوح المحتوى وتنظيمه.</p><span class="experience-icon" aria-hidden="true">⌘</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-7" data-scene="interface" aria-label="الشريحة السابعة: اكتشفي الواجهة">
+      <div class="slide-background bg-orbs bg-cream" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span></div>
+      <div class="scene-container scene-interface">
+        <div class="interface-copy"><p class="eyebrow">اكتشفي الواجهة</p><h2>التصميم يحكي<br /><em>قبل الكلمات</em></h2><p class="lead">تجمع واجهة مومك بين العناصر البصرية والنصوص بطريقة متناسقة، لتساعد الزائرة على استكشاف الموقع والتنقل بين أقسامه بسهولة.</p></div>
+        <div class="interface-art"><div class="interface-frame"><div class="interface-frame__top"><span></span><span></span><span></span><img src="assets/logo.png" alt="شعار مومك" /></div><div class="interface-frame__body"><div class="interface-frame__copy"><span></span><span></span><span></span><b></b></div><img class="interface-frame__image" src="assets/img/hero-mom.png" alt="رسم الأم والطفل من هوية مومك" /></div></div><span class="interface-caption">مومك <i></i> واجهة قريبة من الأم</span></div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-8" data-scene="journey" aria-label="الشريحة الثامنة: رحلة المستخدم">
+      <div class="slide-background bg-lines bg-lilac" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span><span class="float-shape shape-three"></span></div>
+      <div class="scene-container scene-journey">
+        <header class="scene-heading"><p class="eyebrow">رحلة المستخدم</p><h2>من الدخول إلى الاستكشاف</h2></header>
+        <div class="journey-track"><svg viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true"><path class="journey-path" d="M80 150 C190 40 280 45 390 130 S590 205 690 110 S850 40 920 85" /></svg>
+          <article class="journey-stop journey-stop--one"><span class="journey-dot">١</span><p>تبدأ الزائرة بالتعرف على الموقع.</p></article>
+          <article class="journey-stop journey-stop--two"><span class="journey-dot">٢</span><p>تنتقل إلى القسم الذي يهمها.</p></article>
+          <article class="journey-stop journey-stop--three"><span class="journey-dot">٣</span><p>تستكشف المحتوى بطريقة واضحة ومنظمة.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-9" data-scene="identity" aria-label="الشريحة التاسعة: الهوية البصرية">
+      <div class="slide-background bg-gradient bg-lavender" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span></div>
+      <div class="scene-container scene-identity">
+        <div class="identity-copy"><p class="eyebrow">الهوية البصرية</p><h2>ألوان تحمل<br /><em>إحساساً</em></h2></div>
+        <div class="identity-palette" aria-label="لوحة ألوان مومك">
+          <div class="palette-swatch palette-swatch--pink"><span>الوردي الناعم</span><code>#E8C6D2</code></div>
+          <div class="palette-swatch palette-swatch--cream"><span>الكريمي</span><code>#FFF9F4</code></div>
+          <div class="palette-caption"><span class="palette-caption__ornament" aria-hidden="true">✳</span><p>التناسق البصري: هوية بسيطة يسهل تمييزها.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-10" data-scene="making" aria-label="الشريحة العاشرة: كيف بُني المشروع؟">
+      <div class="slide-background bg-ribbons bg-peach" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span><span class="float-shape shape-three"></span></div>
+      <div class="scene-container scene-making">
+        <header class="scene-heading"><p class="eyebrow">كيف بُني المشروع؟</p><h2>الفكرة تتحول إلى تجربة رقمية</h2></header>
+        <p class="lead making-lead">اعتمد تنفيذ المشروع على توظيف أدوات الذكاء الاصطناعي في بناء المواقع، مع الاهتمام بتصميم الواجهة وتنظيم المحتوى وتجربة المستخدم.</p>
+        <div class="making-flow" aria-hidden="true"><span class="making-node">فكرة</span><i></i><span class="making-node making-node--active">تصميم</span><i></i><span class="making-node">تجربة</span></div>
+      </div>
+    </section>
+
+    <section class="slide story-slide" id="slide-11" data-scene="growth" aria-label="الشريحة الحادية عشرة: ما الذي يمكن تطويره؟">
+      <div class="slide-background bg-petals bg-blue" aria-hidden="true"><span class="float-shape shape-one"></span><span class="float-shape shape-two"></span></div>
+      <div class="scene-container scene-growth">
+        <div class="growth-intro"><p class="eyebrow">مساحة للنمو</p><h2>لكل فكرة<br /><em>مساحة للنمو</em></h2></div>
+        <div class="growth-path"><article class="growth-step"><span>01</span><p>إضافة محتوى وأقسام جديدة عند الحاجة.</p></article><article class="growth-step"><span>02</span><p>تحسين تجربة الاستخدام بناءً على الملاحظات.</p></article><article class="growth-step"><span>03</span><p>تطوير التصميم ليتناسب مع مختلف الأجهزة.</p></article></div>
+        <span class="growth-stem" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="slide slide--closing story-slide" id="slide-12" data-scene="conclusion" aria-label="الشريحة الثانية عشرة: ختام حكاية مومك">
+      <div class="slide-background bg-closing-art" aria-hidden="true">
+        <span class="closing-haze"></span>
+        <span class="closing-light closing-light--one"></span>
+        <span class="closing-light closing-light--two"></span>
+        <span class="closing-light closing-light--three"></span>
+        <span class="closing-petal closing-petal--one"></span>
+        <span class="closing-petal closing-petal--two"></span>
+        <span class="closing-petal closing-petal--three"></span>
+        <span class="closing-petal closing-petal--four"></span>
+        <span class="closing-petal closing-petal--five"></span>
+        <span class="closing-petal closing-petal--six"></span>
+        <span class="closing-petal closing-petal--seven"></span>
+        <span class="closing-petal closing-petal--eight"></span>
+      </div>
+      <div class="closing-portal" aria-hidden="true">
+        <div class="closing-portal__shadow"></div>
+        <div class="closing-portal__arch">
+          <div class="closing-portal__opening">
+            <div class="closing-landscape">
+              <span class="closing-sun"></span>
+              <svg viewBox="0 0 360 560" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                  <linearGradient id="closingSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c8d3"/><stop offset=".48" stop-color="#f7dfd2"/><stop offset="1" stop-color="#fff4e7"/></linearGradient>
+                  <linearGradient id="closingHills" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99eaa"/><stop offset="1" stop-color="#b58491"/></linearGradient>
+                  <linearGradient id="closingPath" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff9eb" stop-opacity=".2"/><stop offset=".5" stop-color="#fff4dc"/><stop offset="1" stop-color="#f7d8bc"/></linearGradient>
+                </defs>
+                <rect width="360" height="560" fill="url(#closingSky)"/>
+                <path d="M0 302 Q72 245 143 296 T286 280 T420 302 V560 H0Z" fill="#d6b0b4" opacity=".68"/>
+                <path d="M-20 369 Q67 300 150 352 T305 334 T390 356 V560 H-20Z" fill="url(#closingHills)" opacity=".88"/>
+                <path d="M-20 432 Q66 375 139 411 T287 399 T390 420 V560 H-20Z" fill="#d8b2a6"/>
+                <path d="M168 560 C137 494 221 466 184 417 C158 382 205 358 192 331" fill="none" stroke="url(#closingPath)" stroke-width="28" stroke-linecap="round" opacity=".92"/>
+                <path d="M168 560 C137 494 221 466 184 417 C158 382 205 358 192 331" fill="none" stroke="#fffdf5" stroke-width="2.5" stroke-linecap="round" opacity=".82"/>
+                <g fill="#fff9ee"><circle cx="74" cy="322" r="2"/><circle cx="274" cy="347" r="1.8"/><circle cx="109" cy="400" r="1.4"/><circle cx="291" cy="448" r="1.7"/><circle cx="82" cy="489" r="1.4"/></g>
+              </svg>
+            </div>
+            <div class="closing-portal__leaf"><span></span><span></span><i></i></div>
+            <span class="closing-portal__handle"></span>
+          </div>
+          <span class="closing-portal__shine"></span>
+        </div>
+      </div>
+      <div class="scene-container scene-closing">
+        <span class="closing-copy-glow" aria-hidden="true"></span>
+        <h2 class="closing-title">وكل حكاية جميلة… تبدأ بخطوة</h2>
+        <p class="closing-brand" dir="ltr"><strong>MOMIQ</strong><span aria-hidden="true"> | </span><span dir="rtl">مومِك</span></p>
+        <p class="closing-message">هنا تتحول الفكرة إلى تجربة، ويصبح الاهتمام جزءاً من كل تفصيل.</p>
+        <a class="closing-link" href="../index.html">
+          <span>اكتشفي عالم مومك</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <p class="closing-thanks">شكراً لأنكم كنتم جزءاً من حكايتنا <span aria-hidden="true">♡</span></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Global navigation for slides 2–12 -->
+  <button class="nav-btn prev" type="button" data-prev-slide aria-label="الشريحة السابقة" title="السابقة">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+  <button class="nav-btn next" type="button" data-next-slide aria-label="الشريحة التالية" title="التالية">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
+
+  <div class="slide-counter" id="slideCounter" aria-live="polite">
+    <span id="currentSlideNumber">01</span>
+    <span class="counter-sep">/</span>
+    <span id="totalSlideNumber">12</span>
+  </div>
+
+  <div class="progress-bar" id="progressBar" role="progressbar" aria-label="تقدم العرض" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8"></div>
+
+  <script src="slides.js"></script>
+</body>
+</html>
